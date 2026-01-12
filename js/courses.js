@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                 </div>
             `;
-            list.appendChild(card);
+            list.appendChild(card)
         });
     }
 
