@@ -271,12 +271,6 @@ document.addEventListener('DOMContentLoaded', async function () {
                 <td>${tutor.work_experience || 0} лет</td>
                 <td>${tutor.price_per_hour || 0} ₽/час</td>
                 <td>
-                    <img src="https://via.placeholder.com/50" 
-                         alt="${tutor.name || 'Репетитор'}" 
-                         class="rounded-circle" 
-                         style="width: 50px; height: 50px; object-fit: cover;">
-                </td>
-                <td>
                     <button class="btn btn-sm btn-success select-tutor-btn" 
                             data-tutor='${JSON.stringify(tutor).replace(/'/g, "\\'")}'>
                         Выбрать
