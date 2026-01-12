@@ -1,0 +1,666 @@
+/* Общие стили */
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   
+    /* Добавляем фоновое изображение */
+    background-image: url('../images/gend.png'); /* Путь к вашему изображению */
+    background-size: cover; /* Масштабирует изображение чтобы покрыть весь фон */
+    background-position: center; /* Центрирует изображение */
+    background-attachment: fixed; /* Фон остается фиксированным при прокрутке */
+    background-repeat: no-repeat; /* Не повторяет изображение */
+    min-height: 100vh; /* Минимальная высота - весь экран */
+}
+
+/* Уведомления */
+.alert {
+    border-radius: 10px;
+}
+/* Делаем html и body на всю высоту экрана */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Основной контент (main) должен занять все доступное пространство */
+main {
+    flex: 1 0 auto; /* Занимает все свободное пространство */
+    min-height: calc(100vh - 140px); /* Пример: 100% высоты экрана минус высота шапки и футера (примерно) */
+    /* Это может помочь, если header и footer имеют фиксированную высоту */
+    /* В противном случае, достаточно flex: 1 0 auto; */
+}
+
+/* Футер - фиксируем внизу */
+footer {
+    flex-shrink: 0; /* Не сжимается */
+}
+/* ===== ШАПКА ИЗ FIGMA ===== */
+
+/* Импортируем шрифт Manrope */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* Основная шапка */
+.figma-header {
+    position: fixed;
+    top: 45px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1670px;
+    height: 86px;
+    z-index: 1000;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Фон шапки (Frame 3 из Figma) */
+.header-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(229, 229, 229, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+/* Логотип */
+.header-logo {
+    position: absolute;
+    left: 140px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 265px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Зеленый фон логотипа (Rectangle 2) */
+.logo-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #E3E940;
+    border-radius: 50px;
+    z-index: 1;
+}
+
+/* Текст логотипа (MagicLang) */
+.logo-title {
+    position: relative;
+    z-index: 2;
+    font-family: 'Manrope', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 44px;
+    text-align: center;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+/* Декоративные элементы */
+.logo-deco {
+    position: absolute;
+    right: -113px; /* 253px - 140px = 113px */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 3;
+}
+
+
+
+
+/* Навигация */
+.header-nav {
+    position: absolute;
+    right: 140px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-list {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    display: inline-block;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    text-decoration: none;
+    color: #000000 !important;
+    font-weight: 600;
+    font-family: 'Manrope', sans-serif;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link.active {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.nav-icon {
+    font-size: 18px;
+}
+
+.nav-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+/* Кнопка мобильного меню */
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+}
+
+.mobile-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: #000000;
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* Обертка для уведомлений - ВАЖНО! */
+.notification-wrapper {
+    position: fixed;
+    top: 150px; /* 45px (шапка) + 86px (высота) + 19px (отступ) */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 1670px;
+    padding: 0 20px;
+    z-index: 999;
+    pointer-events: none;
+}
+
+#notification-area {
+    pointer-events: auto;
+}
+
+/* Адаптивность */
+@media (max-width: 1750px) {
+    .figma-header {
+        max-width: calc(100% - 40px);
+        left: 20px;
+        right: 20px;
+        transform: none;
+        top: 20px;
+    }
+    
+    .notification-wrapper {
+        max-width: calc(100% - 40px);
+        left: 20px;
+        right: 20px;
+        transform: none;
+        top: 120px; /* 20px + 86px + 14px */
+    }
+}
+
+@media (max-width: 1400px) {
+    .header-logo {
+        left: 40px;
+    }
+    
+    .logo-deco {
+        right: -60px;
+    }
+    
+    .header-nav {
+        right: 40px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .header-logo {
+        width: 220px;
+        height: 56px;
+        left: 30px;
+    }
+    
+    .logo-title {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    
+    .nav-link {
+        padding: 10px 18px;
+    }
+    
+    .nav-text {
+        font-size: 14px;
+    }
+    
+    .nav-btn {
+        padding: 12px 22px;
+    }
+}
+
+@media (max-width: 991px) {
+    .figma-header {
+        height: 70px;
+        padding: 0 15px;
+    }
+    
+    .header-bg {
+        border-radius: 40px;
+    }
+    
+    .header-logo {
+        width: 180px;
+        height: 50px;
+        left: 20px;
+    }
+    
+    .logo-title {
+        font-size: 22px;
+        line-height: 30px;
+    }
+    
+    .logo-deco {
+        right: -50px;
+    }
+    
+    .deco-rect {
+        width: 5px;
+        height: 7px;
+    }
+    
+    .deco-star {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .deco-icon {
+        font-size: 16px;
+    }
+    
+    .header-nav {
+        position: fixed;
+        top: 100%;
+        left: 20px;
+        right: 20px;
+        background: rgba(229, 229, 229, 0.95);
+        backdrop-filter: blur(25px);
+        border-radius: 30px;
+        padding: 20px;
+        flex-direction: column;
+        gap: 15px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-20px) translateX(0);
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        z-index: 1001;
+    }
+    
+    .header-nav.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-140px) translateX(0);
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .nav-link {
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.2);
+        width: 100%;
+    }
+    
+    .nav-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .mobile-toggle {
+        display: flex;
+    }
+    
+    .mobile-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    .notification-wrapper {
+        top: 100px; /* 20px + 70px + 10px */
+    }
+}
+
+@media (max-width: 576px) {
+    .figma-header {
+        max-width: calc(100% - 30px);
+        padding: 0 10px;
+    }
+    
+    .header-bg {
+        padding: 8px;
+        border-radius: 35px;
+    }
+    
+    .header-logo {
+        width: 150px;
+        height: 44px;
+        left: 15px;
+    }
+    
+    .logo-title {
+        font-size: 18px;
+        line-height: 26px;
+    }
+    
+    .logo-deco {
+        right: -40px;
+    }
+    
+    .notification-wrapper {
+        max-width: calc(100% - 30px);
+        left: 15px;
+        right: 15px;
+        padding: 0 10px;
+    }
+}
+
+/* ===== ОБНОВЛЕННЫЕ СТИЛИ ДЛЯ ВАШЕГО СУЩЕСТВУЮЩЕГО CSS ===== */
+
+/* Убираем старый логотип */
+.logo {
+    display: none;
+}
+
+/* Обновляем отступы для body */
+body {
+    padding-top: 140px; /* 45px (top) + 86px (height) + 9px */
+}
+
+@media (max-width: 1750px) {
+    body {
+        padding-top: 120px; /* 20px + 86px + 14px */
+    }
+}
+
+@media (max-width: 991px) {
+    body {
+        padding-top: 100px; /* 20px + 70px + 10px */
+    }
+}
+
+/* Убираем flex-центрирование и min-height */
+.hero-section {
+    background-image: url('../img/hero_bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 200px; /* ← Отступ сверху = 600px */
+    padding-bottom: 0;  /* ← Никакого нижнего отступа */
+    margin-bottom: 0;   /* ← Убираем внешний отступ */
+    text-align: center;
+    color: white;
+}
+
+/* Заголовок — без лишних отступов */
+.hero-title {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-size: 64px;
+    line-height: 1.2; /* или 87px, если нужно */
+    margin: 0; /* ← КРИТИЧЕСКИ ВАЖНО: убираем margin */
+    color: #000000;
+    display: inline-block;
+}
+
+/* Подзаголовок — вплотную к заголовку */
+.hero-subtitle {
+    font-size: 24px; /* или как у вас */
+    margin: 0; /* ← НИЖНИЙ ОТСТУП УБРАН! */
+    padding: 0;
+    color: #ffffff;
+}
+/* Стили для слова "Magic!" с градиентом */
+.magic-gradient {
+    font-family: 'Macondo', cursive; /* Шрифт Macondo */
+    font-weight: 400; /* Жирность 400 */
+    font-size: 64px; /* Размер 64px */
+    line-height: 76px; /* Высота строки 76px */
+    /* Градиентное заполнение */
+    background: linear-gradient(90deg, #FFFBED 18.27%, #D7FF25 63.46%, #EDD656 83.17%, #FFE30D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+   
+    /* Добавляем небольшой отступ, чтобы "Magic!" не сливалось с предыдущим словом */
+    margin-left: 4px;
+    /* Если нужно, можно добавить тень для лучшей читаемости на фоне */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ===== ОБЩИЕ СТИЛИ ДЛЯ ЗАКРУГЛЕНИЯ И ПРОЗРАЧНОСТИ ===== */
+
+/* Общие стили для всех карточек/блоков */
+.card,
+.table,
+.form-control,
+.form-select,
+.btn,
+.alert,
+.section-content {
+    border-radius: 20px; /* Увеличиваем радиус закругления */
+    background: rgba(255, 255, 255, 0.8); /* Прозрачный белый фон */
+    backdrop-filter: blur(10px); /* Эффект блюра */
+    -webkit-backdrop-filter: blur(10px); /* Для Safari */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Легкая тень */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Тонкая белая рамка */
+}
+
+/* Специфичные стили для карточек курсов */
+.card.h-100.shadow-sm {
+    border: none; /* Убираем стандартную рамку Bootstrap */
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1); /* Более заметная тень */
+    transition: transform 0.3s ease;
+}
+
+.card.h-100.shadow-sm:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Стили для форм (поиск курсов, поиск репетиторов) */
+.form-control,
+.form-select {
+    border: none; /* Убираем рамку */
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.9); /* Более непрозрачный фон */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 30px; /* Очень сильно закругленные углы */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* Фокусное состояние */
+    outline: 0;
+}
+
+/* Стили для кнопок */
+.btn-primary {
+    background: linear-gradient(135deg, #00ff26, #15b300); /* Градиентная кнопка */
+    border: none;
+    border-radius: 30px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 255, 55, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #00b33f, #007a0c);
+    box-shadow: 0 6px 16px rgba(0, 255, 98, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Стили для таблицы репетиторов */
+.table {
+    background: rgba(255, 255, 255, 0.85); /* Прозрачный фон таблицы */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 20px;
+    overflow: hidden; /* Чтобы скругления применялись к границам таблицы */
+}
+
+.table thead th {
+    background: rgba(255, 255, 255, 0.95); /* Более непрозрачный фон заголовков */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background: rgba(230, 230, 230, 0.5); /* Полупрозрачный фон при наведении */
+}
+
+/* Стили для уведомлений */
+.alert {
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Стили для секций (например, "Почему стоит учить языки?") */
+.section-content {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05);
+}
+
+/* Стили для модального окна */
+.modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для футера */
+footer {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Отдельно для этого заголовка */
+section.py-3 h3 {
+    margin-top: 100px;
+}
+/* Активная кнопка пагинации (синяя) → делаем зелёной */
+.page-item.active .page-link {
+    background-color: #00ff26 !important; /* ярко-зелёный */
+    border-color: #00ff26 !important;
+    color: white !important;
+}
+
+/* Неактивные кнопки пагинации (белые) → меняем текст на тёмный */
+.page-item .page-link {
+    color: #495057 !important;
+    background-color: #ffffff !important;
+    border-color: #dee2e6 !important;
+}
+
+/* При наведении на неактивную кнопку */
+.page-item .page-link:hover {
+    background-color: #f8f9fa !important;
+    color: #212529 !important;
+    border-color: #dee2e6 !important;
+}
+/* Для кнопок "Удалить" — делаем текст чёрным */
+.btn-danger {
+    color: #000 !important; /* чёрный текст */
+}
+
+/* При наведении — можно оставить белый или тоже чёрный */
+.btn-danger:hover {
+    color: #000 !important;
+}
+
+/* Для кнопок "Выбрать" — делаем текст чёрным */
+.btn-success {
+    color: #000 !important;
+}
+
+/* При наведении — тоже чёрный */
+.btn-success:hover {
+    color: #000 !important;
+}

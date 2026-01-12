@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас — MagicLangs</title>
+    <!-- Bootstrap 5.3 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+       <!-- Новая шапка из Figma -->
+<header class="figma-header">
+    <!-- Фон с эффектами из Figma -->
+    <div class="header-bg"></div>
+    
+    <!-- Логотип -->
+    <div class="header-logo">
+        <!-- Зеленый фон -->
+        <div class="logo-bg"></div>
+        <!-- Текст -->
+        <h1 class="logo-title">MagicLangs</h1>
+        
+    </div>
+    
+    <!-- Навигация -->
+    <nav class="header-nav">
+        <ul class="nav-list">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link ">
+                   
+                    <span class="nav-text">Главная</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="courses.html" class="nav-link">
+                    
+                    <span class="nav-text">Курсы</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="about.html" class="nav-link active">
+                    <span class="nav-text">О нас</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="contacts.html" class="nav-link">
+                    
+                    <span class="nav-text">Контакты</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="profile.html" class="nav-link">
+                    
+                    <span class="nav-text">Профиль</span>
+                </a>
+            </li>
+        </ul>
+        
+        
+    </nav>
+    
+    <!-- Кнопка мобильного меню -->
+    <button class="mobile-toggle" id="mobileToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</header>
+
+    <!-- Область уведомлений -->
+    <div class="container mt-3">
+        <div id="notification-area"></div>
+    </div>
+
+    <!-- Основной контент -->
+    <main class="container py-5">
+        <h2 class="text-center mb-4">Добро пожаловать в Академию MagicLangs!</h2>
+
+        <div class="row mb-5">
+            <div class="col-lg-8 mx-auto text-center">
+                <p class="lead">
+                    Мы — школа магического языкознания, где слова превращаются в заклинания,
+                    а грамматика становится основой древних рун.
+                </p>
+                <p>
+                    Наша миссия — открыть каждому студенту доступ к живым языкам мира через
+                    призму фантазии, истории и волшебства. Здесь ты не просто учишь язык —
+                    ты становишься частью магической культуры его носителей.
+                </p>
+            </div>
+        </div>
+
+        <!-- Наши преподаватели -->
+        <section class="mb-5">
+            <h3 class="text-center mb-4">Команда магов-языковедов</h3>
+            <div class="row g-4" id="tutors-cards">
+                <!-- Карточки будут заполнены JS -->
+            </div>
+        </section>
+
+        <!-- Наши ценности -->
+        <section class="mb-5">
+            <h3 class="text-center mb-4">Наши принципы</h3>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-3 bg-light rounded h-100">
+                        <h5>Индивидуальный подход</h5>
+                        <p>Каждый студент получает персональный учебный план, как свиток с предсказанием.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-light rounded h-100">
+                        <h5>Живое обучение</h5>
+                        <p>Никаких скучных правил — только практика, игры, диалоги и магические квесты.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 bg-light rounded h-100">
+                        <h5>Международное сообщество</h5>
+                        <p>Общайся с эльфами, драконами и людьми со всего мира — на их родном языке!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- История школы -->
+        <section>
+            <h3 class="text-center mb-4">История MagicLangs</h3>
+            <div class="bg-light p-4 rounded">
+                <p>
+                    Академия MagicLangs была основана в 2020 году группой лингвистов-энтузиастов,
+                    которые верили: изучение языка должно быть таким же захватывающим,
+                    как путешествие в параллельный мир.
+                </p>
+                <p>
+                    Сегодня мы обучаем более 1000 студентов из 30 стран, объединяя технологии,
+                    педагогику и воображение.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2026 MagicLangs. Все права защищены магией.</p>
+                    <p>Контакты: info@magiclangs.example.com</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a href="#" class="text-light me-3">Instagram</a>
+                    <a href="#" class="text-light me-3">VK</a>
+                    <a href="#" class="text-light">Telegram</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/about.js"></script>
+</body>
+</html>
