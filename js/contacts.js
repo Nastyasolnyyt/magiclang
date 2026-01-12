@@ -1,7 +1,7 @@
 // js/contacts.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Логика формы обратной связи
+    // 1. Логика формы обратной связи (оставляем как было)
     const form = document.getElementById('contact-form');
     if (form) {
         form.addEventListener('submit', function (e) {
@@ -19,33 +19,37 @@ document.addEventListener('DOMContentLoaded', () => {
 let myMap;
 let placemarks = []; // Массив для хранения всех меток
 
-// Данные о ресурсах (Фейковые данные для выполнения задания)
+// Данные о ресурсах с ТОЧНЫМИ АДРЕСАМИ
 const resourcesData = [
     {
-        coords: [55.782, 37.712], // Политех (примерно)
+        coords: [55.782, 37.712], 
         category: 'school',
         name: 'MagicLangs (Главный кампус)',
+        address: 'г. Москва, ул. Большая Семёновская, д. 38',
         desc: 'Наш основной офис и классы магии.',
         iconColor: '#dc3545' // Красный
     },
     {
-        coords: [55.751, 37.611], // Библиотека им. Ленина
+        coords: [55.751, 37.611], 
         category: 'library',
         name: 'Российская государственная библиотека',
+        address: 'г. Москва, ул. Воздвиженка, д. 3/5',
         desc: 'Огромный выбор книг на иностранных языках.',
         iconColor: '#198754' // Зеленый
     },
     {
-        coords: [55.741, 37.620], // Третьяковская
+        coords: [55.741, 37.620], 
         category: 'cafe',
         name: 'Cafe Polyglot',
+        address: 'г. Москва, ул. Пятницкая, д. 25',
         desc: 'Разговорный клуб каждую пятницу в 19:00.',
         iconColor: '#ffc107' // Желтый
     },
     {
-        coords: [55.760, 37.595], // Патриаршие
+        coords: [55.760, 37.595], 
         category: 'cafe',
         name: 'English Breakfast Club',
+        address: 'г. Москва, Спиридоньевский пер., д. 10А',
         desc: 'Вкусный кофе и практика английского с носителями.',
         iconColor: '#ffc107'
     },
@@ -53,6 +57,7 @@ const resourcesData = [
         coords: [55.770, 37.630],
         category: 'library',
         name: 'Библиотека иностранной литературы',
+        address: 'г. Москва, Николоямская ул., д. 1',
         desc: 'Специализированная литература и учебные материалы.',
         iconColor: '#198754'
     },
@@ -60,6 +65,7 @@ const resourcesData = [
         coords: [55.755, 37.655],
         category: 'school',
         name: 'Филиал MagicLangs "Курская"',
+        address: 'г. Москва, Земляной Вал, д. 33',
         desc: 'Интенсивные курсы для продвинутых магов.',
         iconColor: '#dc3545'
     }
@@ -79,16 +85,23 @@ function initMap() {
     // Создаем метки
     resourcesData.forEach(data => {
         const placemark = new ymaps.Placemark(data.coords, {
-            hintContent: data.name,
-            balloonContentHeader: data.name,
-            balloonContentBody: data.desc,
-            balloonContentFooter: mapCategoryName(data.category)
+            hintContent: data.name, // При наведении
+            balloonContentHeader: data.name, // Заголовок
+            // В тело балуна добавляем описание И АДРЕС
+            balloonContentBody: `
+                <div style="font-size: 14px;">
+                    ${data.desc}
+                    <br><br>
+                    <strong>Адрес:</strong> ${data.address}
+                </div>
+            `,
+            balloonContentFooter: mapCategoryName(data.category) // Подвал
         }, {
             preset: 'islands#icon',
             iconColor: data.iconColor
         });
 
-        // Сохраняем категорию в самом объекте метки, чтобы потом фильтровать
+        // Сохраняем категорию для фильтрации
         placemark.category = data.category;
         
         myMap.geoObjects.add(placemark);
@@ -114,11 +127,8 @@ function setupFilters() {
             // 3. Фильтруем метки
             placemarks.forEach(placemark => {
                 if (category === 'all' || placemark.category === category) {
-                    // Показываем метку (добавляем на карту, если её нет)
-                    // Но проще использовать visible (через options)
                     placemark.options.set('visible', true);
                 } else {
-                    // Скрываем метку
                     placemark.options.set('visible', false);
                 }
             });
@@ -129,15 +139,17 @@ function setupFilters() {
     });
 }
 
+// Перевод категорий для футера балуна
 function mapCategoryName(cat) {
     switch(cat) {
-        case 'library': return 'Библиотека';
-        case 'cafe': return 'Языковое кафе';
-        case 'school': return 'Учебный центр';
+        case 'library': return 'Категория: Библиотека';
+        case 'cafe': return 'Категория: Языковое кафе';
+        case 'school': return 'Категория: Учебный центр';
         default: return 'Место';
     }
 }
 
+// Функция уведомлений (та же, что и была)
 function showNotification(message, type = 'success') {
     const area = document.getElementById('notification-area');
     if (!area) return;
