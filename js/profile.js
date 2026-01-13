@@ -269,8 +269,6 @@ function formatDate(dateStr) {
 }
 
 function calculateEditPrice(order, course) {
-    // Здесь можно реализовать пересчёт, но по заданию сервер сам считает price при PUT
-    // Поэтому просто отображаем текущую стоимость
     document.getElementById('edit-total-price').textContent = order.price;
 }
 

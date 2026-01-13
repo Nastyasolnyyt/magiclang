@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             filterAndRenderTutors();
         } catch (error) {
             console.error('Ошибка загрузки репетиторов:', error);
-            // Продолжаем работу даже без репетиторов
+            
         }
     }
 

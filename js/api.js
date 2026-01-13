@@ -1,11 +1,11 @@
 // js/api.js
 
 const API_BASE = 'http://exam-api-courses.std-900.ist.mospolytech.ru';
-const API_KEY = '0f1bfb84-07d0-434b-afd5-ee82fb5c1752'; // ← твой ключ
+const API_KEY = '0f1bfb84-07d0-434b-afd5-ee82fb5c1752'; 
 
 /**
  * Универсальная функция для GET-запросов
- * @param {string} endpoint - путь API (например, '/api/courses')
+ * @param {string} endpoint -
  * @returns {Promise<Object[]>}
  */
 async function fetchAPI(endpoint) {

@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     </div>
                 </div>
             `;
-            list.appendChild(card)
+            list.appendChild(card);
         });
     }
 
@@ -95,9 +95,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     window.openOrderModal = function(course) {
-        // ... (логика модального окна — см. предыдущий ответ)
-        // Включает: заполнение полей, расчёт стоимости, отправку через API.createOrder()
-        // Для краткости здесь не привожу, но она уже реализована ранее.
+        
     };
 
     // События

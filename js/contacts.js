@@ -1,7 +1,7 @@
 // js/contacts.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Логика формы обратной связи (оставляем как было)
+    // 1. Логика формы обратной связи 
     const form = document.getElementById('contact-form');
     if (form) {
         form.addEventListener('submit', function (e) {
